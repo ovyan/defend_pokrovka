@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Покровка Defender</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         <style>
         * {
             -webkit-touch-callout: none;
@@ -151,6 +153,10 @@
             margin-top: 100px;
         }
 
+        #content1 {
+            display: none;
+        }
+
         .side {
             text-shadow: 0 0 10px black,0 0 10px black;
             text-align: center;
@@ -168,6 +174,48 @@
             position: relative;
             left: 23px;
         }
+
+        table{
+        color: white;
+        border-spacing: 0;
+        }
+
+        tr:first-child{
+        background-color: gray;
+        }
+
+        tr:nth-child(2) > td{
+        border-top-width: 0;
+        }
+
+        tr{
+        background-color: rgba(40, 40, 40, 0.8);
+        }
+
+        th, td{
+        margin: 0;
+        padding: .5em 1.5em;
+        text-align: center;
+        border-width: 1px 0;
+        border-color: gray;
+        border-style: solid;
+        }
+
+        th{
+        border-bottom-width: 1px;
+        }
+
+        th:nth-child(even){
+        border-width: 0 4px;
+        border-color: rgba(40, 40, 40, 0.8);
+        border-style: solid;
+        }
+
+        td:nth-child(even){
+        border-width: 1px 4px;
+        border-color: gray;
+        border-style: solid;
+        }
         </style>
     </head>
     <body>
@@ -177,40 +225,104 @@
             <img id="btn" onmousedown="return false;" data-enabled="true" src="img/sound.png">
             <div id="score">0</div>
             <div id="highscore"></div>
+            
+            <div id="menu"">
+                <div id="content">
+                    <div class="side" style="float: left">
+                        Score:<br>
+                        <div id="menu-score">0</div>
+                    </div>
+                    <div class="side right" style="float: right">
+                        Highscore:<br>
+                        <div id="menu-high-score">0</div>
+                    </div>
+                </div>
+                <div id="button1" onClick="restartFKN()">ФКН</div>
+                <div id="button2" onClick="restartMI()">ФМЭиМП</div>
+            </div>
             <div id="menu2" style="display: block; opacity: 1">
-                <div id="content">
-                    <div class="side" style="float: left">
-                        Score:<br>
-                        <div id="menu-score">0</div>
+                    <div id="content1" style="display: none;">
+                        <div class="side" style="float: left">
+                            Score:<br>
+                            <div id="menu-score">0</div>
+                        </div>
+                        <div class="side right" style="float: right">
+                            Highscore:<br>
+                            <div id="menu-high-score">0</div>
+                        </div>
                     </div>
-                    <div class="side right" style="float: right">
-                        Highscore:<br>
-                        <div id="menu-high-score">0</div>
-                    </div>
+                    <div style="text-align: center; margin-top:100px; font-size: 26px; color: white"><h1>Выбери свою сторону</h1></div>
+                    <div id="button1" onClick="restartFKN()">ФКН</div>
+                    <div id="button2" onClick="restartMI()">ФМЭиМП</div>
                 </div>
-                <div id="button1" onClick="restartFKN()">ФКН</div>
-                <div id="button2" onClick="restartMI()">МИиМЭ</div>
-            </div>
-
-            <div id="menu">
-                <div id="content">
-                    <div class="side" style="float: left">
-                        Score:<br>
-                        <div id="menu-score">0</div>
-                    </div>
-                    <div class="side right" style="float: right">
-                        Highscore:<br>
-                        <div id="menu-high-score">0</div>
-                    </div>
-                </div>
-                <div id="button1" onClick="restartFKN()">ФКН</div>
-                <div id="button2" onClick="restartMI()">МИиМЭ</div>
-            </div>
+    
         </div>
         <div style="font-size: 20px" id="author">Автор: <a href="https://vk.com/th3luck">Mike</a></div>
+        <div style="display: flex; justify-content: center;">
+          <table>
+            <tbody>
+              <tr>
+                  <th>Rank</th>
+                  <th>Username</th>
+                  <th>Points</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td id="name1">None</td>
+                <td id="score1">None</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td id="name2">None</td>
+                <td id="score2">None</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td id="name3">None</td>
+                <td id="score3">None</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td id="name4">None</td>
+                <td id="score4">None</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td id="name5">None</td>
+                <td id="score5">None</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td id="name6">None</td>
+                <td id="score6">None</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td id="name7">None</td>
+                <td id="score7">None</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td id="name8">None</td>
+                <td id="score8">None</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td id="name9">None</td>
+                <td id="score9">None</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td id="name10">None</td>
+                <td id="score10">None</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <script src="knight.js" charset="utf-8"></script>
         <script src="meeuw.js" charset="utf-8"></script>
         <script src="main.js" charset="utf-8"></script>
+        <script src="google-stats.js" charset="utf-8"></script>
     </body>
     <script>
         var isMobile = false;
@@ -229,5 +341,18 @@
             let notAvDiv = document.getElementById('not');
             notAvDiv.style.display = "none";
         }
+        $.ajax({
+                type: 'GET',
+                url: 'https://hse.then.wtf/api/v1/leaderboard',
+                dataType: 'json',
+                success: function(resp){
+                    for (var i = 0; i < resp.length; i++) {
+                        var player = document.getElementById("name" + (i + 1));
+                        var playerscore = document.getElementById("score" + (i + 1));
+                        player.innerText = resp[i]["user_name"];
+                        playerscore.innerText = resp[i]["user_score"];
+                    }
+                }
+            });
     </script>
 </html>

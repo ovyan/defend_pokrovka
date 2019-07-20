@@ -41,7 +41,6 @@ var canvas = document.getElementById('cvs'),
     boom3 = new Audio('boom3.mp3'),
     boom4 = new Audio('boom4.mp3'),
     isFkn = false,
-    person = "Mike",
     mute = false;
 
 music.loop = true;
@@ -191,7 +190,7 @@ function update() {
 function render() {
     // Sky
     gfx.drawImage(images.sky, 0, 0, width, height);
-    d = Date.now
+
     gfx.drawImage(images.sky_cloud_1, sky_1_offset, 0, width, height);
     gfx.drawImage(images.sky_cloud_1, width + sky_1_offset, 0, width, height);
 
@@ -478,29 +477,13 @@ function finish() {
     if (menu2.style.display == "none") {
         var person = prompt("Введите имя для таблицы рекордов", "");
         if (person != null) {
-            // let json_data = {"name": person, "score": highscore, "statsId": f()};
             let json_data = {"name": person, "score": highscore};
             $.ajax({
                 type: 'POST',
                 url: 'https://hse.then.wtf/api/v1/leaderboard',
                 data: JSON.stringify(json_data),
                 dataType: 'json',
-                contentType: "application/json; charset=utf-8",
-                success: function(r){
-                    $.ajax({
-                        type: 'GET',
-                        url: 'https://hse.then.wtf/api/v1/leaderboard',
-                        dataType: 'json',
-                        success: function(resp){
-                            for (var i = 0; i < resp.length; i++) {
-                                var player = document.getElementById("name" + (i + 1));
-                                var playerscore = document.getElementById("score" + (i + 1));
-                                player.innerText = resp[i]["user_name"];
-                                playerscore.innerText = resp[i]["user_score"];
-                            }
-                        }
-                    });
-                }
+                contentType: "application/json; charset=utf-8"
             });
             $.ajax({
                 type: 'GET',
